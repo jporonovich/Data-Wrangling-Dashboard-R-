@@ -1,7 +1,3 @@
-remove(list=ls())
-#Set Working Directory
-setwd("C:/Users/JPoro/Desktop/Porfolio Projects/Consolidate_files-R/All Files")
-
 #Loading CSV in Dataframes
 GDP = read.csv("Canada_GDP(Clean).csv", header = TRUE)
 CPI = read.csv("Canada_CPI(Clean).csv",header = TRUE)
