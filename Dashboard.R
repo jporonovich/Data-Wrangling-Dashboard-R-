@@ -2,15 +2,8 @@ library(ggplot2)
 library(shiny)
 library(sf) #loading data
 
-setwd("C:/Users/JPoro/Desktop/Porfolio Projects/Dashboarding -R")
 ConsolidatedAnnual = read.csv("ConsolidatedAnnual.csv")
-
-setwd("C:/Users/JPoro/Desktop/Porfolio Projects/Dashboarding -R")
-
-# loading shape file
-setwd("C:/Users/JPoro/Desktop/Porfolio Projects/Dashboarding -R/CanadaMapShapeFile-Reduced")
 CanadaMapShape = read_sf("gpr_000b11a_e.shp")
-setwd("C:/Users/JPoro/Desktop/Porfolio Projects/Dashboarding -R")
 
 #loading Alcohol percapita file
 PerCapita = read.csv("consolidatedAlcoholPercapita.csv")
