@@ -16,7 +16,7 @@ Description:<br />
   * [x] Canada_GDP(Clean).csv
   * [x] TobaccoSales(Clean).csv
 
-* [x] Merge Shape file(.shp) and Alcolhol per capita  
+* [x] Merge Shape file(.shp) and Alcohol per capita  
   * [x] gpr_000b11a_e.shp
   * [x] consolidatedAlcoholPercapita.csv
 
