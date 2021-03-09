@@ -31,27 +31,28 @@ Description:<br />
   <Summary> Click here. </Summary>
  
  ``` r
+           #dynamic Line chart 
            ggplot(ConsolidatedAnnual, aes(x = Year)) +
-      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {GDP.Prct.Chg} else {GDP}), 
-                col = if (is.na(match("GDP",input$ThreeMetrics))) {NA} else {"#0e7bcf"}, 
-                na.rm=TRUE, size = 1.15 )+ # Adding GDP % Change
-      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Alcohol.Prct.Chg} else {Alcohol.Sales.CAD}),
-                col = if (is.na(match("Alcohol",input$ThreeMetrics))) {NA} else {"#de9307"},
-                na.rm=TRUE, size = 1.15) + # Adding Alcohol % Change
-      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Tobacco.Prct.Chg} else {Tobacco.Sale.CAD}),
-                col = if (is.na(match("Tobacco",input$ThreeMetrics))) {NA} else {"#08a65c"},
-                na.rm=TRUE, size = 1.15) + # Adding tobacco % Change
-      ylim(t = if (is.na(match("Dollar Value",input$SourceData))) {c(-20,20)} else {c(0,25000000)}) + #setting y range
-      xlim(2000,2020)+
-      xlab("Year") + #renaming x axis
-      ylab(if (is.na(match("Dollar Value",input$SourceData))) {"Percentage Change(%)"} else {"Dollar Value CAD"})+ #renaming y axis
-      ggtitle("Annual Expenditures & Growth/Decline")+
-      theme(
-        panel.background = element_blank(),
-        panel.grid = element_blank(),
-        #panel.grid.major.x = element_line(color = "gray50", size = 0.05),
-        panel.grid.major = element_line(color = "gray50", size = 0.05),
-        plot.title = element_text(size = 14, face = "bold.italic", color = "#0c73c2")
+           geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {GDP.Prct.Chg} else {GDP}), 
+                 col = if (is.na(match("GDP",input$ThreeMetrics))) {NA} else {"#0e7bcf"}, 
+                 na.rm=TRUE, size = 1.15 )+ # Adding GDP % Change
+           geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Alcohol.Prct.Chg} else {Alcohol.Sales.CAD}),
+                 col = if (is.na(match("Alcohol",input$ThreeMetrics))) {NA} else {"#de9307"},
+                 na.rm=TRUE, size = 1.15) + # Adding Alcohol % Change
+           geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Tobacco.Prct.Chg} else {Tobacco.Sale.CAD}),
+                 col = if (is.na(match("Tobacco",input$ThreeMetrics))) {NA} else {"#08a65c"},
+                 na.rm=TRUE, size = 1.15) + # Adding tobacco % Change
+           ylim(t = if (is.na(match("Dollar Value",input$SourceData))) {c(-20,20)} else {c(0,25000000)}) + #setting y range
+           xlim(2000,2020)+
+           xlab("Year") + #renaming x axis
+           ylab(if (is.na(match("Dollar Value",input$SourceData))) {"Percentage Change(%)"} else {"Dollar Value CAD"})+ #renaming y axis
+           ggtitle("Annual Expenditures & Growth/Decline")+
+           theme(
+             panel.background = element_blank(),
+             panel.grid = element_blank(),
+             #panel.grid.major.x = element_line(color = "gray50", size = 0.05),
+             panel.grid.major = element_line(color = "gray50", size = 0.05),
+             plot.title = element_text(size = 14, face = "bold.italic", color = "#0c73c2")
 
 ```
 
