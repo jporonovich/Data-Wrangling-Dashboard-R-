@@ -25,9 +25,10 @@ Description:<br />
   * [ ] Heat map of canada provincial alcohol sales _(Work in progess)_ 
   * [ ] Interactive Table
 
-
+### Snippet from Dashboard.R
+*Full file available in repository*
 <details>
-  <Summary> Snippet from Consolidating.R </Summary>
+  <Summary> Click here. </Summary>
  
  ``` r
            ggplot(ConsolidatedAnnual, aes(x = Year)) +
