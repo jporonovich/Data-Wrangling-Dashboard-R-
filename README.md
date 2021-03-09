@@ -1,10 +1,14 @@
-# Project Summary 
-## Data Wrangling  & Interactive Dashboard  **'R'**
+# Data Wrangling  & Interactive Dashboard  **'R'**
 Last updated: March, 2021 <br />
 By: Jordan 
 
 Description:<br />
 *Consolidate and clean Alcohol, Tobacco, GDP and CPI data into files into three separate CSV files (Monthly, Quarterly, Yearly). Merge .shp file with Alcohol sales per capita csv file and finally Developed dashboard for visualization & analysis*
+
+*Current Progress*
+
+![Dashboard visualization]()
+
 
 * [x] Consolidate files (Monthly, Quarterly, Annual) 
   * [x] AlcoholSales(Clean).csv
