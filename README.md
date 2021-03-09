@@ -29,7 +29,7 @@ Description:<br />
 <details>
   <Summary> Snippet from Consolidating.R </Summary>
  
- ```
+ ``` r
         #Creating a dataframe that will hold monthly sales and GDP information. 
 
         #Empty data frame
