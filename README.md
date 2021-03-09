@@ -5,7 +5,7 @@ By: Jordan
 Description:<br />
 *Consolidate and clean Alcohol, Tobacco, GDP and CPI data into files into three separate CSV files (Monthly, Quarterly, Yearly). Merge .shp file with Alcohol sales per capita csv file and finally Developed dashboard for visualization & analysis*
 
-*Current Progress. Heatmap and drop down deisgned. Next step, link user input and heatmap.*
+*Current Progress. Heatmap and drop down designed. Next step, link user input and heatmap.*
 
 ![Dashboard visualization](https://raw.githubusercontent.com/jporonovich/R_-_DataWrangling_Dashboard-Shiny/main/Dashboard(Work-In%20Progress).PNG)
 
