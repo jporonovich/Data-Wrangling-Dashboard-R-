@@ -5,7 +5,7 @@ By: Jordan
 Description:<br />
 *Consolidate and clean Alcohol, Tobacco, GDP and CPI data into files into three separate CSV files (Monthly, Quarterly, Yearly). Merge .shp file with Alcohol sales per capita csv file and finally Developed dashboard for visualization & analysis*
 
-*Current Progress*
+*Current Progress. Heatmap and drop down deisgned. Next step, link user input and heatmap.*
 
 ![Dashboard visualization](https://raw.githubusercontent.com/jporonovich/R_-_DataWrangling_Dashboard-Shiny/main/Dashboard(Work-In%20Progress).PNG)
 
@@ -30,25 +30,27 @@ Description:<br />
   <Summary> Snippet from Consolidating.R </Summary>
  
  ``` r
-        #Creating a dataframe that will hold monthly sales and GDP information. 
-
-        #Empty data frame
-        ConsolidatedMonthly = data.frame() 
-        
-        #Translating Horizontal Alcohol sale datato vertical
-        for (i in 1:length(colnames(AlcoholSales))){
-          ConsolidatedMonthly[i,1] = colnames(AlcoholSales)[i] # Whole date`` 
-          ConsolidatedMonthly[i,2] = "" # Leaving blank for Year & Quarter (See 3rd line down)
-          ConsolidatedMonthly[i,3] = as.numeric(substr(colnames(AlcoholSales)[i],1,4)) # Year 
-          ConsolidatedMonthly[i,4] = paste0("Q",ceiling(as.numeric(substr(colnames(AlcoholSales)[i],5,6))/3)) # Quarter
-          ConsolidatedMonthly[i,2] = paste0(ConsolidatedMonthly[i,4],".",ConsolidatedMonthly[i,3]) # Year & Quarter
-          ConsolidatedMonthly[i,5] = as.numeric(AlcoholSales[1,i]) # sales
-        }
-
-        #Alcohol SALE  Percentage Change
-        for (i in 1:(length(row.names(ConsolidatedMonthly))-1)){
-          ConsolidatedMonthly[(i+1),6] = round(as.numeric(((ConsolidatedMonthly[(i+1),5]/ConsolidatedMonthly[i,5])-1)*100),2)
-        }
+           ggplot(ConsolidatedAnnual, aes(x = Year)) +
+      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {GDP.Prct.Chg} else {GDP}), 
+                col = if (is.na(match("GDP",input$ThreeMetrics))) {NA} else {"#0e7bcf"}, 
+                na.rm=TRUE, size = 1.15 )+ # Adding GDP % Change
+      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Alcohol.Prct.Chg} else {Alcohol.Sales.CAD}),
+                col = if (is.na(match("Alcohol",input$ThreeMetrics))) {NA} else {"#de9307"},
+                na.rm=TRUE, size = 1.15) + # Adding Alcohol % Change
+      geom_line(aes(y = if (is.na(match("Dollar Value",input$SourceData))) {Tobacco.Prct.Chg} else {Tobacco.Sale.CAD}),
+                col = if (is.na(match("Tobacco",input$ThreeMetrics))) {NA} else {"#08a65c"},
+                na.rm=TRUE, size = 1.15) + # Adding tobacco % Change
+      ylim(t = if (is.na(match("Dollar Value",input$SourceData))) {c(-20,20)} else {c(0,25000000)}) + #setting y range
+      xlim(2000,2020)+
+      xlab("Year") + #renaming x axis
+      ylab(if (is.na(match("Dollar Value",input$SourceData))) {"Percentage Change(%)"} else {"Dollar Value CAD"})+ #renaming y axis
+      ggtitle("Annual Expenditures & Growth/Decline")+
+      theme(
+        panel.background = element_blank(),
+        panel.grid = element_blank(),
+        #panel.grid.major.x = element_line(color = "gray50", size = 0.05),
+        panel.grid.major = element_line(color = "gray50", size = 0.05),
+        plot.title = element_text(size = 14, face = "bold.italic", color = "#0c73c2")
 
 ```
 
