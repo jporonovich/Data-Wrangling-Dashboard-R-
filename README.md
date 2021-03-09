@@ -28,6 +28,7 @@ Description:<br />
 
 <details>
   <Summary> Snippet from Consolidating.R </Summary>
+    
     ```
         
         #Creating a dataframe that will hold monthly sales and GDP information. 
@@ -49,6 +50,7 @@ Description:<br />
         for (i in 1:(length(row.names(ConsolidatedMonthly))-1)){
           ConsolidatedMonthly[(i+1),6] = round(as.numeric(((ConsolidatedMonthly[(i+1),5]/ConsolidatedMonthly[i,5])-1)*100),2)
         }
+    
     ```
 
 </details>
