@@ -7,7 +7,7 @@ Description:<br />
 
 *Current Progress*
 
-![Dashboard visualization]()
+![Dashboard visualization](https://raw.githubusercontent.com/jporonovich/R_-_DataWrangling_Dashboard-Shiny/main/Dashboard(Work-In%20Progress).PNG)
 
 
 * [x] Consolidate files (Monthly, Quarterly, Annual) 
